@@ -18,7 +18,19 @@ namespace R03BMI
 
         private void Button_Clicked(object sender, EventArgs e)
         {
+                double weight = weightit;
+                double height = heightit * heightit;
+            if(weight < 1000){
+                weight = weight / 1000;
+                Console.WriteLine(Math.Round(weight));
+            }
+            if(height < 100){
+                height = height / 100;
+                Console.WriteLine(Math.Round(height));
+            }
 
+                double BMI = weight / height
+                Console.WriteLine(Math.Round(BMI));
         }
     }
 }
