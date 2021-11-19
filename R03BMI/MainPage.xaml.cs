@@ -25,36 +25,49 @@ namespace R03BMI
 
                 double h = double.Parse(height);
                 double w = double.Parse(weight);
+                double BMI;
 
                 if (h > 10)
                 {
                     h = h / 100;
-                    double b = w / h / h;
-                    result.Text = "身長" + h*100 + "cm、体重" + w + "kgの人のBMIは" + Math.Round(b * 10) / 10 + "です。";
-
-                }
-                else
-                {
-
-                    double b = w / h / h;
-
-                    result.Text = "身長" + h + "m、体重" + w + "kgの人のBMIは" + Math.Round(b * 10) / 10 + "です。";
                 }
                 if (w > 1000)
                 {
                     w = w / 1000;
-                    double b = w / h / h;
-                    result.Text = "身長" + h*100 + "cm、体重" + w + "kgの人のBMIは" + Math.Round(b * 10) / 10 + "です。";
-
                 }
-                else
-                {
 
-                    double b = w / h / h;
 
-                    result.Text = "身長" + h + "m、体重" + w + "kgの人のBMIは" + Math.Round(b * 10) / 10 + "です。";
-                }
-                
+            double b = w / h / h;
+            BMI = Math.Round(b * 10) / 10;
+
+            String joutai;
+            if (BMI >= 40.00)
+            {
+                joutai = "肥満(4度)";
+            }else if(BMI >= 35.00)
+            {
+                joutai = "肥満(3度)";
+            }
+            else if (BMI >= 30.00)
+            {
+                joutai = "肥満(2度)";
+            }
+            else if (BMI >= 25.00)
+            {
+                joutai = "肥満(1度)";
+            }
+            else if (BMI >= 18.50)
+            {
+                joutai = "普通体重";
+            }
+            else
+            {
+                joutai = "低体重(痩せ)";
+            }
+
+
+            result.Text = "身長" + h + "m、体重" + w + "kgの人のBMIは" + BMI + "("+joutai+")です。";
+
         }
     }
 }
