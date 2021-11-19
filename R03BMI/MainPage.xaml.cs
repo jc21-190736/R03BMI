@@ -19,25 +19,28 @@ namespace R03BMI
         private void Button_Clicked(object sender, EventArgs e)
         {
             double d1 = double.Parse("5.12345");
-                double weight = double.Parse(weighit);
-                double height = double.Parse(heighit);
 
-             if(weight < 1000){
-                weight = weight / 1000;
-                (Math.Round(weight);
-            }
-            if(height < 100){
-                height = height / 100;
-               (Math.Round(height);
-            }
+            string height = weighit.Text;
+            string weight = heighit.Text;
 
-                double height = heighit * heighit;
-           
+                double h = double.Parse(height);
+                double w = double.Parse(weight);
 
-                double BMI = weight / height
-                (Math.Round(BMI);
+                if (h > 10)
+                {
+                    h = h / 100;
+                    double b = w / h / h;
+                    result.Text = "身長" + h*100 + "cm、体重" + w + "kgの人のBMIは" + Math.Round(b * 10) / 10 + "です。";
 
-            result.Text="身長："+height+"体重："+weight"のあなたのBIMは"+BMI+"です。";
+                }
+                else
+                {
+
+                    double b = w / h / h;
+
+                    result.Text = "身長" + h + "m、体重" + w + "kgの人のBMIは" + Math.Round(b * 10) / 10 + "です。";
+                }
+                
         }
     }
 }
